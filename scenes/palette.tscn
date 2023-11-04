@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://btrwyrqgii5dk"]
+
+[ext_resource type="Texture2D" uid="uid://4maygrjspkpn" path="res://assets/palette.png" id="1_01usi"]
+
+[node name="Palette" type="Sprite2D"]
+texture = ExtResource("1_01usi")
