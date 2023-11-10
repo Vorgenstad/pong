@@ -11,7 +11,7 @@ script = ExtResource("1_iae1t")
 layer = -1
 
 [node name="Player1" parent="." instance=ExtResource("1_yuure")]
-position = Vector2(10, 360)
+position = Vector2(30, 360)
 
 [node name="Player2" parent="." instance=ExtResource("1_yuure")]
-position = Vector2(1270, 360)
+position = Vector2(1250, 360)
