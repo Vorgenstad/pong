@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://btrwyrqgii5dk"]
+[gd_scene load_steps=4 format=3 uid="uid://btrwyrqgii5dk"]
 
 [ext_resource type="Texture2D" uid="uid://4maygrjspkpn" path="res://assets/palette.png" id="1_01usi"]
+[ext_resource type="Script" path="res://scenes/palette.gd" id="1_rpotc"]
 
-[node name="Palette" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73psp"]
+size = Vector2(20, 120)
+
+[node name="Palette" type="Area2D"]
+script = ExtResource("1_rpotc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_01usi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_73psp")
