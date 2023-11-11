@@ -15,4 +15,7 @@ func _process(delta):
 	position += velocity * delta
 
 func pick_random_option(a, b):
-	return a if randi() % 2 else -b
+	return a if randi() % 2 else b
+
+func _on_body_entered(_body):
+	print("body entered")
