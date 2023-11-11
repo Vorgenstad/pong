@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://cwpm2y8mf8kxm"]
+[gd_scene load_steps=2 format=3 uid="uid://cwpm2y8mf8kxm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knm3w"]
+size = Vector2(1280, 21)
 
 [node name="Field" type="CanvasLayer"]
 
@@ -9,3 +12,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Walls"]
+position = Vector2(0, -1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D"]
+position = Vector2(640, -9.5)
+shape = SubResource("RectangleShape2D_knm3w")
+
+[node name="Area2D2" type="Area2D" parent="Walls"]
+position = Vector2(0, 741)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D2"]
+position = Vector2(640, -10)
+shape = SubResource("RectangleShape2D_knm3w")

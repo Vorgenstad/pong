@@ -17,5 +17,8 @@ func _process(delta):
 func pick_random_option(a, b):
 	return a if randi() % 2 else b
 
-func _on_area_entered(_area):
-	x_direction = -x_direction
+func _on_area_entered(area):
+	if area.get_collision_layer() == 1:
+		x_direction = -x_direction
+	else:
+		y_direction = -y_direction
