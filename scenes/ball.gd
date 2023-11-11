@@ -17,5 +17,5 @@ func _process(delta):
 func pick_random_option(a, b):
 	return a if randi() % 2 else b
 
-func _on_body_entered(_body):
-	print("body entered")
+func _on_area_entered(_area):
+	x_direction = -x_direction
