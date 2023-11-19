@@ -8,8 +8,10 @@ func _on_goal_area_entered(_area: Area2D, player_that_scored: int):
 
 	if player_that_scored == 1:
 		player_1_score += 1
+		$UI.update_score(1, player_1_score)
 	else:
 		player_2_score += 1
+		$UI.update_score(2, player_2_score)
 	
 	$StartTimer.start()
 
