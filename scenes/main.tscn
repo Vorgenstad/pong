@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgf1qrronkihu"]
+[gd_scene load_steps=7 format=3 uid="uid://dgf1qrronkihu"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_anyin"]
 [ext_resource type="PackedScene" uid="uid://btrwyrqgii5dk" path="res://scenes/palette.tscn" id="1_yuure"]
+[ext_resource type="PackedScene" uid="uid://bmmoer40phkvh" path="res://scenes/ui.tscn" id="2_4cvd6"]
 [ext_resource type="PackedScene" uid="uid://cwpm2y8mf8kxm" path="res://scenes/field.tscn" id="2_i3noa"]
 [ext_resource type="PackedScene" uid="uid://c845tw8ecfjsk" path="res://scenes/ball.tscn" id="4_jcufi"]
 
@@ -10,6 +11,9 @@ size = Vector2(20, 720)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_anyin")
+
+[node name="UI" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("2_4cvd6")]
+timer = NodePath("../StartTimer")
 
 [node name="Field" parent="." instance=ExtResource("2_i3noa")]
 layer = -1

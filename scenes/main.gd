@@ -15,3 +15,4 @@ func _on_goal_area_entered(_area: Area2D, player_that_scored: int):
 
 func _on_start_timer_timeout():
 	$Ball.start_moving()
+	$UI.display_start_text()
