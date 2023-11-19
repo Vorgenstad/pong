@@ -45,5 +45,5 @@ collision_mask = 4
 position = Vector2(-10, 360)
 shape = SubResource("RectangleShape2D_xwydk")
 
-[connection signal="area_entered" from="Player2Goal" to="." method="_on_goal_area_entered"]
-[connection signal="area_entered" from="Player1Goal" to="." method="_on_goal_area_entered"]
+[connection signal="area_entered" from="Player2Goal" to="." method="_on_goal_area_entered" binds= [2]]
+[connection signal="area_entered" from="Player1Goal" to="." method="_on_goal_area_entered" binds= [1]]
