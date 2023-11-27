@@ -1,34 +1,34 @@
 [gd_scene load_steps=7 format=3 uid="uid://dgf1qrronkihu"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_anyin"]
-[ext_resource type="PackedScene" uid="uid://btrwyrqgii5dk" path="res://scenes/palette.tscn" id="1_yuure"]
-[ext_resource type="PackedScene" uid="uid://bmmoer40phkvh" path="res://scenes/ui.tscn" id="2_4cvd6"]
-[ext_resource type="PackedScene" uid="uid://cwpm2y8mf8kxm" path="res://scenes/field.tscn" id="2_i3noa"]
-[ext_resource type="PackedScene" uid="uid://c845tw8ecfjsk" path="res://scenes/ball.tscn" id="4_jcufi"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_wn61u"]
+[ext_resource type="PackedScene" uid="uid://bmmoer40phkvh" path="res://scenes/ui.tscn" id="2_xvmp8"]
+[ext_resource type="PackedScene" uid="uid://cwpm2y8mf8kxm" path="res://scenes/field.tscn" id="3_gnhli"]
+[ext_resource type="PackedScene" uid="uid://btrwyrqgii5dk" path="res://scenes/palette.tscn" id="4_posbo"]
+[ext_resource type="PackedScene" uid="uid://c845tw8ecfjsk" path="res://scenes/ball.tscn" id="5_ln7l7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwydk"]
 size = Vector2(20, 720)
 
-[node name="Main" type="Node2D"]
-script = ExtResource("1_anyin")
+[node name="Game" type="Node2D"]
+script = ExtResource("1_wn61u")
 
-[node name="UI" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("2_4cvd6")]
+[node name="UI" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("2_xvmp8")]
 timer = NodePath("../StartTimer")
 
-[node name="Field" parent="." instance=ExtResource("2_i3noa")]
+[node name="Field" parent="." instance=ExtResource("3_gnhli")]
 layer = -1
 
-[node name="Player1" parent="." instance=ExtResource("1_yuure")]
+[node name="Player1" parent="." instance=ExtResource("4_posbo")]
 position = Vector2(30, 360)
 up_key = 87
 down_key = 83
 
-[node name="Player2" parent="." instance=ExtResource("1_yuure")]
+[node name="Player2" parent="." instance=ExtResource("4_posbo")]
 position = Vector2(1250, 360)
 up_key = 4194320
 down_key = 4194322
 
-[node name="Ball" parent="." instance=ExtResource("4_jcufi")]
+[node name="Ball" parent="." instance=ExtResource("5_ln7l7")]
 position = Vector2(640, 360)
 collision_layer = 4
 
