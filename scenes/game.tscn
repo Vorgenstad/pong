@@ -11,6 +11,7 @@ size = Vector2(20, 720)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wn61u")
+winning_score = 3
 
 [node name="UI" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("2_xvmp8")]
 timer = NodePath("../StartTimer")

@@ -5,7 +5,7 @@
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_awbst")
 
-[node name="TimerLabel" type="Label" parent="."]
+[node name="InfoLabel" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

@@ -4,10 +4,10 @@ extends CanvasLayer
 
 func _process(_delta):
 	if timer.time_left != 0:
-		$TimerLabel.text = str(int(ceil(timer.time_left)))
+		$InfoLabel.text = str(int(ceil(timer.time_left)))
 
 func display_start_text():
-	$TimerLabel.text = "Go!"
+	$InfoLabel.text = "Go!"
 	$StartTextTimer.start()
 
 func update_score(player: int, score: int):
@@ -16,5 +16,8 @@ func update_score(player: int, score: int):
 	else:
 		$Player2ScoreLabel.text = str(score)
 
+func display_game_over(winning_player: int):
+	$InfoLabel.text = "Player %s wins!" % winning_player
+
 func _on_start_text_timer_timeout():
-	$TimerLabel.text = ""
+	$InfoLabel.text = ""
