@@ -11,17 +11,17 @@ const initial_position = Vector2(640, 360)
 func _ready():
 	initialize()
 
-func _process(delta):	
+func _process(delta):
 	if moving:
 		var velocity = Vector2(x_direction, y_direction).normalized() * speed
 		position += velocity * delta
 
 func pick_random_option(a, b):
-	return a if randi() % 2 else b
+	return a if randi_range(0, 1) % 2 else b
 
 func initialize():
-	x_direction = pick_random_option(2 , -2)
-	y_direction = pick_random_option(1 , -1)
+	x_direction = pick_random_option(2, -2)
+	y_direction = pick_random_option(1, -1)
 	position = initial_position
 	moving = false
 
