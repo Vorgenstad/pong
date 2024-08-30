@@ -4,7 +4,6 @@ extends Area2D
 @export var down_key: Key
 
 const speed = 300
-const screen_height = 720
 
 var upper_limit: float
 var lower_limit: float
@@ -12,6 +11,9 @@ var lower_limit: float
 func _ready() -> void:
 	var height := ($Sprite2D as Sprite2D).texture.get_height()
 	upper_limit = 0 + height / 2.0
+
+	var screen_height := get_viewport().get_visible_rect().size.y
+
 	lower_limit = screen_height - height / 2.0
 
 func _process(delta: float) -> void:
