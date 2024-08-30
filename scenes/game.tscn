@@ -21,13 +21,10 @@ layer = -1
 
 [node name="Player1" parent="." instance=ExtResource("4_posbo")]
 position = Vector2(30, 360)
-up_key = 87
-down_key = 83
 
 [node name="Player2" parent="." instance=ExtResource("4_posbo")]
 position = Vector2(1250, 360)
-up_key = 4194320
-down_key = 4194322
+player = 1
 
 [node name="Ball" parent="." instance=ExtResource("5_ln7l7")]
 position = Vector2(640, 360)

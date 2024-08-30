@@ -1,14 +1,20 @@
 extends Area2D
 
-@export var up_key: Key
-@export var down_key: Key
+@export var player: Constants.Player
 
 const speed = 300
+
+var up_action: String
+var down_action: String
 
 var upper_limit: float
 var lower_limit: float
 
 func _ready() -> void:
+	set_movement_limits()
+	set_actions()
+
+func set_movement_limits() -> void:
 	var height := ($Sprite2D as Sprite2D).texture.get_height()
 	upper_limit = 0 + height / 2.0
 
@@ -16,12 +22,21 @@ func _ready() -> void:
 
 	lower_limit = screen_height - height / 2.0
 
+func set_actions() -> void:
+	match player:
+		Constants.Player.LEFT:
+			up_action = "left_player_up"
+			down_action = "left_player_down"
+		Constants.Player.RIGHT:
+			up_action = "right_player_up"
+			down_action = "right_player_down"
+
 func _process(delta: float) -> void:
 	var direction := 0
 	
-	if Input.is_key_pressed(up_key):
+	if Input.is_action_pressed(up_action):
 		direction = -1
-	if Input.is_key_pressed(down_key):
+	if Input.is_action_pressed(down_action):
 		direction = 1
 	
 	if direction != 0:
