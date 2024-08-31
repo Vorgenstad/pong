@@ -6,10 +6,12 @@ extends Area2D
 var x_direction: int
 var y_direction: int
 var moving := false
-
-const initial_position = Vector2(640, 360)
+var initial_position: Vector2
 
 func _ready() -> void:
+	var screen_size := get_viewport().get_visible_rect().size
+	initial_position = screen_size / 2
+
 	initialize()
 
 func _process(delta: float) -> void:
