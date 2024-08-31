@@ -30,20 +30,20 @@ player = 1
 position = Vector2(640, 360)
 collision_layer = 4
 
-[node name="Player2Goal" type="Area2D" parent="."]
+[node name="LeftGoal" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2Goal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGoal"]
 position = Vector2(-10, 360)
 shape = SubResource("RectangleShape2D_xwydk")
 
-[node name="Player1Goal" type="Area2D" parent="."]
+[node name="RightGoal" type="Area2D" parent="."]
 position = Vector2(1300, 0)
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1Goal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal"]
 position = Vector2(-10, 360)
 shape = SubResource("RectangleShape2D_xwydk")
 
@@ -52,6 +52,6 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[connection signal="area_entered" from="Player2Goal" to="." method="_on_goal_area_entered" binds= [2]]
-[connection signal="area_entered" from="Player1Goal" to="." method="_on_goal_area_entered" binds= [1]]
+[connection signal="area_entered" from="LeftGoal" to="." method="_on_goal_area_entered" binds= [1]]
+[connection signal="area_entered" from="RightGoal" to="." method="_on_goal_area_entered" binds= [0]]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
