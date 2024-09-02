@@ -14,6 +14,19 @@ func _ready() -> void:
 	set_movement_limits()
 	set_actions()
 
+func _process(delta: float) -> void:
+	var direction := 0
+	
+	if Input.is_action_pressed(up_action):
+		direction = -1
+	if Input.is_action_pressed(down_action):
+		direction = 1
+	
+	if direction != 0:
+		position.y += speed * direction * delta
+	
+	position.y = clamp(position.y, upper_limit, lower_limit)
+
 func set_movement_limits() -> void:
 	var height := ($Sprite2D as Sprite2D).texture.get_height()
 	upper_limit = 0 + height / 2.0
@@ -30,16 +43,3 @@ func set_actions() -> void:
 		Constants.Player.RIGHT:
 			up_action = "right_player_up"
 			down_action = "right_player_down"
-
-func _process(delta: float) -> void:
-	var direction := 0
-	
-	if Input.is_action_pressed(up_action):
-		direction = -1
-	if Input.is_action_pressed(down_action):
-		direction = 1
-	
-	if direction != 0:
-		position.y += speed * direction * delta
-	
-	position.y = clamp(position.y, upper_limit, lower_limit)

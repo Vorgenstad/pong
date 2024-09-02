@@ -28,3 +28,13 @@ func _on_goal_area_entered(_area: Area2D, player_that_scored: Constants.Player) 
 func _on_start_timer_timeout() -> void:
 	ball.start_moving()
 	ui.display_start_text()
+
+func _on_restart_actioned() -> void:
+	scores[Constants.Player.LEFT] = 0
+	scores[Constants.Player.RIGHT] = 0
+
+	ui.reset_score()
+
+	ball.initialize()
+
+	start_timer.start()
