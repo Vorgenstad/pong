@@ -24,9 +24,9 @@ func update_score(player: Constants.Player, score: int) -> void:
 			right_score_label.text = str(score)
 
 func display_game_over(winning_player: Constants.Player) -> void:
-	info_label.text = "%s player wins!" % format_player_name(winning_player)
+	info_label.text = "%s player wins!" % _format_player_name(winning_player)
 
-func format_player_name(player: Constants.Player) -> String:
+func _format_player_name(player: Constants.Player) -> String:
 	match player:
 		Constants.Player.LEFT:
 			return "Left"
