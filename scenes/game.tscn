@@ -28,7 +28,6 @@ player = 1
 
 [node name="Ball" parent="." instance=ExtResource("5_ln7l7")]
 position = Vector2(640, 360)
-collision_layer = 4
 
 [node name="LeftGoal" type="Area2D" parent="."]
 collision_layer = 0

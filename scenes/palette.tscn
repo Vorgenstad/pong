@@ -4,14 +4,35 @@
 [ext_resource type="Script" path="res://scripts/palette.gd" id="1_rpotc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73psp"]
-size = Vector2(20, 120)
+size = Vector2(20, 50)
 
-[node name="Palette" type="Area2D"]
-collision_mask = 0
-script = ExtResource("1_rpotc")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Palette" type="Sprite2D"]
 texture = ExtResource("1_01usi")
+script = ExtResource("1_rpotc")
+player = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitCooldownTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="UpperArea" type="Area2D" parent="."]
+position = Vector2(0, -30)
+scale = Vector2(1, 1.2)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape2D" parent="UpperArea"]
 shape = SubResource("RectangleShape2D_73psp")
+
+[node name="LowerArea" type="Area2D" parent="."]
+position = Vector2(0, 30)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape2D" parent="LowerArea"]
+scale = Vector2(1, 1.2)
+shape = SubResource("RectangleShape2D_73psp")
+
+[connection signal="timeout" from="HitCooldownTimer" to="." method="_on_hit_cooldown_timer_timeout"]
+[connection signal="area_entered" from="UpperArea" to="." method="_on_upper_area_entered"]
+[connection signal="area_entered" from="LowerArea" to="." method="_on_lower_area_entered"]
