@@ -1,8 +1,9 @@
 class_name Ball
 extends Area2D
 
-@export var speed := 400
+@export var initial_speed: float = 400
 
+var speed: float
 var x_direction: int
 var y_direction: int
 var moving := false
@@ -20,6 +21,7 @@ func _process(delta: float) -> void:
 		position += velocity * delta
 
 func initialize() -> void:
+	speed = initial_speed
 	x_direction = _pick_random_option(2, -2)
 	y_direction = _pick_random_option(1, -1)
 	position = initial_position
@@ -36,3 +38,9 @@ func _on_area_entered(area: Area2D) -> void:
 		x_direction = -x_direction
 	else:
 		y_direction = -y_direction
+
+func _on_acceleration_timer_timeout() -> void:
+	if moving:
+		speed += 10
+
+	print(speed)
