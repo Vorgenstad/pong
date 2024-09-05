@@ -1,7 +1,7 @@
 class_name Ball
 extends Area2D
 
-@export var initial_speed: float = 400
+@export var initial_speed: float = 500
 
 var speed: float
 var direction: Vector2
@@ -45,4 +45,4 @@ func _on_area_entered(_area: Area2D) -> void:
 
 func _on_acceleration_timer_timeout() -> void:
 	if moving:
-		speed += 10
+		speed += 20
