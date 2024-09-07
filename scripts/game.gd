@@ -1,6 +1,7 @@
+class_name Game
 extends Node2D
 
-@export var winning_score: int
+var winning_score: int
 
 var scores := {
 	Constants.Player.LEFT: 0,
