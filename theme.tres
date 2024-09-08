@@ -5,3 +5,4 @@
 [resource]
 default_font = ExtResource("1_5yduj")
 default_font_size = 30
+BoxContainer/constants/separation = 10

@@ -1,7 +1,7 @@
 class_name NumberInput
 extends Control
 
-@onready var label: Label = $HBoxContainer/Value
+@onready var label: Label = $ValueLabel
 
 var _initialized := false
 var _max_value: int
