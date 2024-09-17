@@ -26,6 +26,7 @@ position = Vector2(1250, 360)
 player = 1
 
 [node name="Ball" parent="." instance=ExtResource("5_ln7l7")]
+unique_name_in_owner = true
 position = Vector2(640, 360)
 
 [node name="LeftGoal" type="Area2D" parent="."]

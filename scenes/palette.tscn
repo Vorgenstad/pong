@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4maygrjspkpn" path="res://assets/palette.png" id="1_01usi"]
 [ext_resource type="Script" path="res://scripts/palette.gd" id="1_rpotc"]
-[ext_resource type="PackedScene" uid="uid://fuj2llanmc2k" path="res://scenes/player_controller.tscn" id="3_goysn"]
+[ext_resource type="Script" path="res://scripts/ai_controller.gd" id="3_j23u8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73psp"]
 size = Vector2(20, 50)
@@ -33,7 +33,8 @@ collision_mask = 4
 scale = Vector2(1, 1.2)
 shape = SubResource("RectangleShape2D_73psp")
 
-[node name="Controller" parent="." node_paths=PackedStringArray("palette") instance=ExtResource("3_goysn")]
+[node name="AIController" type="Node" parent="." node_paths=PackedStringArray("palette")]
+script = ExtResource("3_j23u8")
 palette = NodePath("..")
 
 [connection signal="timeout" from="HitCooldownTimer" to="." method="_on_hit_cooldown_timer_timeout"]
