@@ -1,6 +1,6 @@
 class_name Constants
 
-enum Player {
+enum PlayerSide {
     LEFT,
     RIGHT,
 }
@@ -8,4 +8,9 @@ enum Player {
 enum HitDirection {
     UP,
     DOWN,
+}
+
+enum ControllerType {
+    PLAYER,
+    AI,
 }

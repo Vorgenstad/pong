@@ -1,15 +1,8 @@
-class_name Controller
-extends Node
-
-@export var palette: Palette
-
-const _speed = 300
+class_name PlayerController
+extends Controller
 
 var _up_action: String
 var _down_action: String
-
-var _upper_limit: float
-var _lower_limit: float
 
 func _ready() -> void:
 	_set_movement_limits()
@@ -37,10 +30,10 @@ func _set_movement_limits() -> void:
 	_lower_limit = screen_height - height / 2.0
 
 func _set_actions() -> void:
-	match palette.player:
-		Constants.Player.LEFT:
+	match palette.player_side:
+		Constants.PlayerSide.LEFT:
 			_up_action = "left_player_up"
 			_down_action = "left_player_down"
-		Constants.Player.RIGHT:
+		Constants.PlayerSide.RIGHT:
 			_up_action = "right_player_up"
 			_down_action = "right_player_down"

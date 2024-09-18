@@ -3,21 +3,25 @@ extends Node2D
 
 var winning_score: int
 
-var scores := {
-	Constants.Player.LEFT: 0,
-	Constants.Player.RIGHT: 0,
-}
-
 @onready var ball: Ball = $Ball
 @onready var ui: Ui = $UI
 @onready var start_timer: Timer = $StartTimer
 
-func _on_goal_area_entered(_area: Area2D, player_that_scored: Constants.Player) -> void:
+var _scores := {
+	Constants.PlayerSide.LEFT: 0,
+	Constants.PlayerSide.RIGHT: 0,
+}
+
+func _ready() -> void:
+	(%LeftPlayer as Palette).initialize(Constants.ControllerType.PLAYER)
+	(%RightPlayer as Palette).initialize(Constants.ControllerType.AI)
+
+func _on_goal_area_entered(_area: Area2D, player_that_scored: Constants.PlayerSide) -> void:
 	ball.initialize()
 	
-	var new_score: int = scores[player_that_scored] + 1
+	var new_score: int = _scores[player_that_scored] + 1
 
-	scores[player_that_scored] = new_score
+	_scores[player_that_scored] = new_score
 
 	ui.update_score(player_that_scored, new_score)
 
@@ -31,8 +35,8 @@ func _on_start_timer_timeout() -> void:
 	ui.display_start_text()
 
 func _on_restart_actioned() -> void:
-	scores[Constants.Player.LEFT] = 0
-	scores[Constants.Player.RIGHT] = 0
+	_scores[Constants.PlayerSide.LEFT] = 0
+	_scores[Constants.PlayerSide.RIGHT] = 0
 
 	ui.reset_score()
 

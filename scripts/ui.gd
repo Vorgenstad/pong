@@ -19,26 +19,26 @@ func display_start_text() -> void:
 	info_label.text = "Go!"
 	start_text_timer.start()
 
-func update_score(player: Constants.Player, score: int) -> void:
+func update_score(player: Constants.PlayerSide, score: int) -> void:
 	match player:
-		Constants.Player.LEFT:
+		Constants.PlayerSide.LEFT:
 			left_score_label.text = str(score)
-		Constants.Player.RIGHT:
+		Constants.PlayerSide.RIGHT:
 			right_score_label.text = str(score)
 
 func reset_score() -> void:
 	left_score_label.text = "0"
 	right_score_label.text = "0"
 	
-func display_game_over(winning_player: Constants.Player) -> void:
+func display_game_over(winning_player: Constants.PlayerSide) -> void:
 	info_label.text = "%s player wins!" % _format_player_name(winning_player)
 	_activate_button()
 
-func _format_player_name(player: Constants.Player) -> String:
+func _format_player_name(player: Constants.PlayerSide) -> String:
 	match player:
-		Constants.Player.LEFT:
+		Constants.PlayerSide.LEFT:
 			return "Left"
-		Constants.Player.RIGHT:
+		Constants.PlayerSide.RIGHT:
 			return "Right"
 		_:
 			printerr("Unexpected player" + str(player))

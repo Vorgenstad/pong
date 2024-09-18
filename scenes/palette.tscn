@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://btrwyrqgii5dk"]
+[gd_scene load_steps=6 format=3 uid="uid://btrwyrqgii5dk"]
 
 [ext_resource type="Texture2D" uid="uid://4maygrjspkpn" path="res://assets/palette.png" id="1_01usi"]
 [ext_resource type="Script" path="res://scripts/palette.gd" id="1_rpotc"]
-[ext_resource type="Script" path="res://scripts/ai_controller.gd" id="3_j23u8"]
+[ext_resource type="PackedScene" uid="uid://fuj2llanmc2k" path="res://scenes/player_controller.tscn" id="3_buycl"]
+[ext_resource type="PackedScene" uid="uid://ca75a4o75bmyi" path="res://scenes/ai_controller.tscn" id="4_vecax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73psp"]
 size = Vector2(20, 50)
@@ -10,6 +11,8 @@ size = Vector2(20, 50)
 [node name="Palette" type="Sprite2D"]
 texture = ExtResource("1_01usi")
 script = ExtResource("1_rpotc")
+player_controller_scene = ExtResource("3_buycl")
+ai_controller_scene = ExtResource("4_vecax")
 
 [node name="HitCooldownTimer" type="Timer" parent="."]
 wait_time = 0.2
@@ -32,10 +35,6 @@ collision_mask = 4
 [node name="CollisionShape" type="CollisionShape2D" parent="LowerArea"]
 scale = Vector2(1, 1.2)
 shape = SubResource("RectangleShape2D_73psp")
-
-[node name="AIController" type="Node" parent="." node_paths=PackedStringArray("palette")]
-script = ExtResource("3_j23u8")
-palette = NodePath("..")
 
 [connection signal="timeout" from="HitCooldownTimer" to="." method="_on_hit_cooldown_timer_timeout"]
 [connection signal="area_entered" from="UpperArea" to="." method="_on_upper_area_entered"]

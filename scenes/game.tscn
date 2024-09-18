@@ -18,12 +18,14 @@ timer = NodePath("../StartTimer")
 [node name="Field" parent="." instance=ExtResource("3_gnhli")]
 layer = -1
 
-[node name="Player1" parent="." instance=ExtResource("4_posbo")]
+[node name="LeftPlayer" parent="." instance=ExtResource("4_posbo")]
+unique_name_in_owner = true
 position = Vector2(30, 360)
 
-[node name="Player2" parent="." instance=ExtResource("4_posbo")]
-position = Vector2(1250, 360)
-player = 1
+[node name="RightPlayer" parent="." instance=ExtResource("4_posbo")]
+unique_name_in_owner = true
+position = Vector2(1249, 360)
+player_side = 1
 
 [node name="Ball" parent="." instance=ExtResource("5_ln7l7")]
 unique_name_in_owner = true
