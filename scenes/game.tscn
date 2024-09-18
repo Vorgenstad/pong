@@ -24,7 +24,7 @@ position = Vector2(30, 360)
 
 [node name="RightPlayer" parent="." instance=ExtResource("4_posbo")]
 unique_name_in_owner = true
-position = Vector2(1249, 360)
+position = Vector2(1250, 360)
 player_side = 1
 
 [node name="Ball" parent="." instance=ExtResource("5_ln7l7")]
