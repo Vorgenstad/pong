@@ -1,20 +1,22 @@
 class_name Game
 extends Node2D
 
-var winning_score: int
-
 @onready var ball: Ball = $Ball
 @onready var ui: Ui = $UI
 @onready var start_timer: Timer = $StartTimer
+
+var _winning_score: int
 
 var _scores := {
 	Constants.PlayerSide.LEFT: 0,
 	Constants.PlayerSide.RIGHT: 0,
 }
 
-func _ready() -> void:
+func initialize(winning_score: int, second_player_type: Constants.ControllerType) -> void:
+	_winning_score = winning_score
+
 	(%LeftPlayer as Palette).initialize(Constants.ControllerType.PLAYER)
-	(%RightPlayer as Palette).initialize(Constants.ControllerType.AI)
+	(%RightPlayer as Palette).initialize(second_player_type)
 
 func _on_goal_area_entered(_area: Area2D, player_that_scored: Constants.PlayerSide) -> void:
 	ball.initialize()
@@ -25,7 +27,7 @@ func _on_goal_area_entered(_area: Area2D, player_that_scored: Constants.PlayerSi
 
 	ui.update_score(player_that_scored, new_score)
 
-	if new_score == winning_score:
+	if new_score == _winning_score:
 		ui.display_game_over(player_that_scored)
 	else:
 		start_timer.start()
