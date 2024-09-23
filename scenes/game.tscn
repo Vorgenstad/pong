@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgf1qrronkihu"]
+[gd_scene load_steps=8 format=3 uid="uid://dgf1qrronkihu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_wn61u"]
 [ext_resource type="PackedScene" uid="uid://bmmoer40phkvh" path="res://scenes/ui.tscn" id="2_xvmp8"]
 [ext_resource type="PackedScene" uid="uid://cwpm2y8mf8kxm" path="res://scenes/field.tscn" id="3_gnhli"]
 [ext_resource type="PackedScene" uid="uid://btrwyrqgii5dk" path="res://scenes/palette.tscn" id="4_posbo"]
 [ext_resource type="PackedScene" uid="uid://c845tw8ecfjsk" path="res://scenes/ball.tscn" id="5_ln7l7"]
+[ext_resource type="PackedScene" uid="uid://dngpgbbfwslyx" path="res://scenes/pause_menu.tscn" id="6_hxmyg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwydk"]
 size = Vector2(20, 720)
@@ -52,6 +53,8 @@ shape = SubResource("RectangleShape2D_xwydk")
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_hxmyg")]
 
 [connection signal="restart_actioned" from="UI" to="." method="_on_restart_actioned"]
 [connection signal="area_entered" from="LeftGoal" to="." method="_on_goal_area_entered" binds= [1]]
