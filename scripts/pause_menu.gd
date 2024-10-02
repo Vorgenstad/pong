@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal quit_actioned
+
 @onready var _menu_elements: CanvasLayer = %MenuElements
 @onready var _tree := get_tree()
 
@@ -13,3 +15,7 @@ func _toggle_pause() -> void:
 
 func _on_resume_button_pressed() -> void:
 	_toggle_pause()
+
+func _on_quit_button_pressed() -> void:
+	_toggle_pause()
+	quit_actioned.emit()

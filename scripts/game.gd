@@ -1,6 +1,8 @@
 class_name Game
 extends Node2D
 
+signal quit_actioned
+
 @onready var ball: Ball = $Ball
 @onready var ui: Ui = $UI
 @onready var start_timer: Timer = $StartTimer
@@ -45,3 +47,6 @@ func _on_restart_actioned() -> void:
 	ball.initialize()
 
 	start_timer.start()
+
+func _on_pause_menu_quit_actioned() -> void:
+	quit_actioned.emit()
