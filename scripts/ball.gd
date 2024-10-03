@@ -3,6 +3,9 @@ extends Area2D
 
 @export var initial_speed: float = 500
 
+@onready var pallete_hit_sound: AudioStreamPlayer = %PaletteHitSound
+@onready var wall_hit_sound: AudioStreamPlayer = %WallHitSound
+
 var speed: float
 var direction: Vector2
 var moving := false
@@ -29,6 +32,8 @@ func start_moving() -> void:
 	moving = true
 
 func hit(hit_direction: Constants.HitDirection) -> void:
+	pallete_hit_sound.play()
+
 	direction.x = -direction.x
 	
 	match hit_direction:
@@ -41,6 +46,8 @@ func _pick_random_option(a: int, b: int) -> int:
 	return a if randi_range(0, 1) % 2 else b
 
 func _on_area_entered(_area: Area2D) -> void:
+	wall_hit_sound.play()
+
 	direction.y = -direction.y
 
 func _on_acceleration_timer_timeout() -> void:

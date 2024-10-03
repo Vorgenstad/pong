@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c845tw8ecfjsk"]
+[gd_scene load_steps=6 format=3 uid="uid://c845tw8ecfjsk"]
 
 [ext_resource type="Texture2D" uid="uid://ddpf52udit3j" path="res://assets/ball.png" id="1_7vd5g"]
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_p7fo0"]
+[ext_resource type="AudioStream" uid="uid://cl5hcx7a5xapo" path="res://assets/audio/palette_ball_hit.mp3" id="3_wtql5"]
+[ext_resource type="AudioStream" uid="uid://cich0epov56m8" path="res://assets/audio/wall_ball_hit.mp3" id="4_ece0t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ljn8"]
 radius = 13.0
@@ -20,6 +22,15 @@ shape = SubResource("CircleShape2D_6ljn8")
 
 [node name="AccelerationTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="PaletteHitSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_wtql5")
+volume_db = -3.0
+
+[node name="WallHitSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_ece0t")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="AccelerationTimer" to="." method="_on_acceleration_timer_timeout"]
