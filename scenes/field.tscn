@@ -1,17 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwpm2y8mf8kxm"]
+[gd_scene load_steps=3 format=3 uid="uid://cwpm2y8mf8kxm"]
+
+[ext_resource type="Texture2D" uid="uid://dmgcv3kqyyo6s" path="res://assets/field.jpg" id="1_7owdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knm3w"]
 size = Vector2(1280, 21)
 
 [node name="Field" type="CanvasLayer"]
 
-[node name="Background" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_7owdy")
+centered = false
 
 [node name="Walls" type="Node" parent="."]
 
