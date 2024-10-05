@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c845tw8ecfjsk"]
+[gd_scene load_steps=7 format=3 uid="uid://c845tw8ecfjsk"]
 
-[ext_resource type="Texture2D" uid="uid://ddpf52udit3j" path="res://assets/ball.png" id="1_7vd5g"]
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_p7fo0"]
+[ext_resource type="Texture2D" uid="uid://bgu7dc0jarjvf" path="res://assets/ball.png" id="2_vtwlm"]
 [ext_resource type="AudioStream" uid="uid://cl5hcx7a5xapo" path="res://assets/audio/palette_ball_hit.mp3" id="3_wtql5"]
 [ext_resource type="AudioStream" uid="uid://cich0epov56m8" path="res://assets/audio/wall_ball_hit.mp3" id="4_ece0t"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kjeug"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ljn8"]
-radius = 13.0
+radius = 17.0
 
 [node name="Ball" type="Area2D"]
 collision_layer = 4
@@ -14,8 +16,9 @@ collision_mask = 2
 script = ExtResource("1_p7fo0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_kjeug")
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_7vd5g")
+texture = ExtResource("2_vtwlm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6ljn8")
