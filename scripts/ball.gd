@@ -41,6 +41,11 @@ func hit(hit_direction: Constants.HitDirection) -> void:
 			direction.y = -1
 		Constants.HitDirection.DOWN:
 			direction.y = 1
+	
+	direction.y = direction.y * _random_deviation()
+
+func _random_deviation() -> float:
+	return randf_range(0.8, 1.2)
 
 func _pick_random_option(a: int, b: int) -> int:
 	return a if randi_range(0, 1) % 2 else b
