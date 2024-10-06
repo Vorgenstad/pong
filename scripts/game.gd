@@ -6,6 +6,7 @@ signal quit_actioned
 @onready var ball: Ball = $Ball
 @onready var ui: Ui = $UI
 @onready var start_timer: Timer = $StartTimer
+@onready var goal_sound: AudioStreamPlayer = %GoalSound
 
 var _winning_score: int
 
@@ -21,6 +22,8 @@ func initialize(winning_score: int, second_player_type: Constants.ControllerType
 	(%RightPlayer as Palette).initialize(second_player_type)
 
 func _on_goal_area_entered(_area: Area2D, player_that_scored: Constants.PlayerSide) -> void:
+	goal_sound.play()
+
 	ball.initialize()
 	
 	var new_score: int = _scores[player_that_scored] + 1
