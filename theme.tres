@@ -1,8 +1,33 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://br2yljk4s03v"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://br2yljk4s03v"]
 
 [ext_resource type="FontFile" uid="uid://058cin1vr7q2" path="res://fonts/Kenney Pixel Square.ttf" id="1_5yduj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82f1b"]
+bg_color = Color(0.643137, 0.643137, 0.643137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckh3s"]
+bg_color = Color(0.644663, 0.644663, 0.644663, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2n5sy"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iif4t"]
+bg_color = Color(0.233925, 0.233925, 0.233925, 1)
 
 [resource]
 default_font = ExtResource("1_5yduj")
 default_font_size = 30
 BoxContainer/constants/separation = 10
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_82f1b")
+Button/styles/hover = SubResource("StyleBoxFlat_ckh3s")
+Button/styles/normal = SubResource("StyleBoxFlat_2n5sy")
+Button/styles/pressed = SubResource("StyleBoxFlat_iif4t")
