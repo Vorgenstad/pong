@@ -61,6 +61,7 @@ autostart = true
 unique_name_in_owner = true
 stream = ExtResource("7_u27w7")
 
+[connection signal="quit_actioned" from="UI" to="." method="_on_ui_quit_actioned"]
 [connection signal="restart_actioned" from="UI" to="." method="_on_restart_actioned"]
 [connection signal="area_entered" from="LeftGoal" to="." method="_on_goal_area_entered" binds= [1]]
 [connection signal="area_entered" from="RightGoal" to="." method="_on_goal_area_entered" binds= [0]]

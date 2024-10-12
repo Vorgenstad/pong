@@ -2,6 +2,7 @@ class_name Ui
 extends CanvasLayer
 
 signal restart_actioned
+signal quit_actioned
 
 @export var timer: Timer
 
@@ -9,7 +10,7 @@ signal restart_actioned
 @onready var start_text_timer: Timer = $StartTextTimer
 @onready var left_score_label: Label = $LeftScoreLabel
 @onready var right_score_label: Label = $RightScoreLabel
-@onready var reset_button: Button = $ResetButton
+@onready var _buttons_container: Container = $ButtonsContainer
 
 func _process(_delta: float) -> void:
 	if timer.time_left != 0:
@@ -32,7 +33,7 @@ func reset_score() -> void:
 	
 func display_game_over(winning_player: Constants.PlayerSide) -> void:
 	info_label.text = "%s player wins!" % _format_player_name(winning_player)
-	_activate_button()
+	_activate_buttons()
 
 func _format_player_name(player: Constants.PlayerSide) -> String:
 	match player:
@@ -44,13 +45,16 @@ func _format_player_name(player: Constants.PlayerSide) -> String:
 			printerr("Unexpected player" + str(player))
 			return ""
 
-func _activate_button() -> void:
-	# reset_button.disabled = false
-	reset_button.visible = true
+func _activate_buttons() -> void:
+	_buttons_container.visible = true
 
 func _on_start_text_timer_timeout() -> void:
 	info_label.text = ""
 
-func _on_reset_button_pressed() -> void:
-	reset_button.visible = false
+func _on_reset_actioned() -> void:
+	_buttons_container.visible = false
+
 	restart_actioned.emit()
+
+func _on_quit_actioned() -> void:
+	quit_actioned.emit()

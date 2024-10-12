@@ -53,3 +53,6 @@ func _on_restart_actioned() -> void:
 
 func _on_pause_menu_quit_actioned() -> void:
 	quit_actioned.emit()
+
+func _on_ui_quit_actioned() -> void:
+	quit_actioned.emit()
